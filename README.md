@@ -3,7 +3,7 @@ To build the docker composition:
   docker-compose build
 ```
 
-For setting up communication between containers use the --x-networking option.  This is a new feature of docker-compose that replaces links. It setups up networks so that containers can communicate with one another.
+For setting up communication between containers use the **--x-networking** option.  This is a new feature of docker-compose that replaces links. It setups up networks so that containers can communicate with one another.
 
 To start all of the docker containers:
 ```
