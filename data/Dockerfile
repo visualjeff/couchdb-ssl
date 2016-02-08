@@ -2,5 +2,7 @@
 # To run: docker run -d --name data_container -t visualjeff/data:0.0.1
 
 FROM busybox:latest
-RUN mkdir /data
-VOLUME /data
+RUN mkdir -p /usr/local/var/lib/couchdb
+VOLUME /usr/local/var/lib/couchdb
+
+CMD ["echo", "Data container for couchdb"]
