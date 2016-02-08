@@ -1,6 +1,6 @@
 #
 # docker build --force-rm=true -t visualjeff/couchdb-ssl:latest .
-# docker run -d -p 6984:6984 visualjeff/couchdb-ssl:latest
+# docker run -d -p 5984:5984 -p 6984:6984 visualjeff/couchdb-ssl:latest
 
 FROM klaemo/couchdb-ssl
 
