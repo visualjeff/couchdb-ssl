@@ -1,0 +1,8 @@
+couchdb:
+  build: couchdb
+  volumes_from:
+    - couchdbdata
+  ports:
+    - "6894:6984"
+couchdbdata:
+  build: data
