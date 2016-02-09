@@ -5,7 +5,6 @@ couchdb:
   volumes:
     - /usr/local/var/lib/couchdb:/usr/local/var/lib/couchdb:rw
   ports:
-    - "5984:5984"
-    - "6984:6984"
+    - "443:443"
 couchdbdata:
   build: data
