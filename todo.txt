@@ -1,3 +1,5 @@
-1. externalize data
-2. externalize configs
-3. set admin password
+To do list for completing dockerization of nginx and couchdb:
+1. externalize nginx certs so their pull from the docker data container
+2. externalize nginx logging so it goes to the docker data container
+
+jgilber

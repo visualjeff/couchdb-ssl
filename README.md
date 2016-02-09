@@ -1,3 +1,18 @@
+Project is a Nginx/CouchDB deployable docker composition:
+
+  * Nginx 1.9.9-1~jessie
+  * Couchdb 1.6.1
+  * Debian linux jessie
+  * Docker 1.9.1
+  * Docker-compose 
+
+Two docker images are produced:
+  1. Nginx and CouchDB
+  2. Docker Data Volumn
+
+The Nginx/CouchDB image size is roughly about 230mb +/-
+The Docker data volumn image size is 1mb +/-
+
 To build the docker composition:
 ```
   docker-compose build
@@ -22,27 +37,37 @@ To stop all of the docker containers:
 
 To view all databases:
 ```
-  curl -kX GET https://localhost:6984/_all_dbs
+  curl -kX GET https://localhost/_all_dbs
+```
+
+To view the CouchDB Futon UI:
+```
+  https://localhost/_utils/
+```
+
+Credentials for the administration account is:  
+```
+admin:Happy4u$
 ```
 
 To create a database:
 ```
-  curl -u admin:<password> -kX PUT https://localhost:6984/<database_name>
+  curl -u admin:<password> -kX PUT https://localhost/<database_name>
 ```
 
 To POST data to a database:
 ```
-  curl -H 'Content-Type: application/json' -u admin:<password> -kX POST https://localhost:6984/test -d '{"name": "test name"}'
+  curl -H 'Content-Type: application/json' -u admin:<password> -kX POST https://localhost/test -d '{"name": "test name"}'
 ```
 
 To GET a particular record:
 ```
-  curl -kX GET https://localhost:6984/test/<record_id>
+  curl -kX GET https://localhost/test/<record_id>
 ```
 
 To PUT a design document for a view:
 ```
-  curl -u admin:<password> -kX PUT https://localhost:6984/<database>/_design/<view_name> -d sample.json
+  curl -u admin:<password> -kX PUT https://localhost/<database>/_design/<view_name> -d sample.json
 ```
 
 Sample.json file for adding a view:
@@ -58,3 +83,7 @@ Sample.json file for adding a view:
     }
   }
 ```
+
+To turn on replication between nodes see:
+
+[https://sites.google.com/a/costco.com/javascript-users-group/home/tools/nosql/couchdb/replication](https://sites.google.com/a/costco.com/javascript-users-group/home/tools/nosql/couchdb/replication "CouchDB Replication")
